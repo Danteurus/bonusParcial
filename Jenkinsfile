@@ -13,6 +13,12 @@ pipeline {
             }
         }
         
+        stage('compile') {
+            steps {
+                bat "mvn -Dmaven.test.failure.ignore=true compile"
+            }
+        }
+
         stage('empacar') {
             steps {
                 bat "mvn -Dmaven.test.failure.ignore=true package"
